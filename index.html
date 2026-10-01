@@ -252,6 +252,13 @@ h1{
   .final p{font-size:13px;line-height:1.8}
 }
 
+
+.scroll-text{margin-bottom:13px;color:#b8ae9e;font-size:12px;letter-spacing:.8px}
+.scroll-btn{appearance:none;border:1px solid rgba(232,202,139,.28);background:linear-gradient(135deg,rgba(255,255,255,.08),rgba(216,181,106,.08));color:#f0d69a;border-radius:999px;padding:10px 17px;min-width:118px;display:inline-flex;align-items:center;justify-content:center;gap:9px;cursor:pointer;box-shadow:0 8px 25px rgba(0,0,0,.18),inset 0 1px 0 rgba(255,255,255,.07);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);transition:transform .25s ease,border-color .25s ease,background .25s ease}
+.scroll-btn .arrow{font-size:17px;line-height:1;animation:arrowDown 1.25s ease-in-out infinite}
+.scroll-btn:active{transform:scale(.94)}
+.scroll-btn:hover{border-color:rgba(243,217,155,.5);background:linear-gradient(135deg,rgba(255,255,255,.1),rgba(216,181,106,.13))}
+@keyframes arrowDown{0%,100%{transform:translateY(-2px)}50%{transform:translateY(4px)}}
 </style>
 </head>
 <body>
@@ -268,7 +275,12 @@ h1{
       <h1>Happy<br>Birthday<br>Manshura</h1>
       <p class="subtitle">কিছু মানুষ জীবনে প্রতিদিন থাকে না,<br>তবুও কিছু স্মৃতিতে তারা সবসময় থেকে যায়। 🤍</p>
       <div class="date-pill">02 · October · <span>2026</span></div>
-      <div class="scroll">SCROLL TO OPEN YOUR SURPRISE ↓</div>
+      <div class="scroll">
+        <div class="scroll-text">একটু নিচে যাও, অথবা নিচে স্ক্রল করো ✨</div>
+        <button class="scroll-btn" id="scrollBtn" type="button" aria-label="নিচে যাও">
+          <span>নিচে যাও</span><span class="arrow">↓</span>
+        </button>
+      </div>
     </div>
   </section>
 
@@ -390,6 +402,12 @@ const observer = new IntersectionObserver((entries)=>{
   });
 },{threshold:.12});
 document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+
+const scrollBtn=document.getElementById('scrollBtn');
+if(scrollBtn) scrollBtn.addEventListener('click',()=>{
+  const nextSection=document.querySelector('main > .section');
+  if(nextSection) nextSection.scrollIntoView({behavior:'smooth',block:'start'});
+});
 
 const gift=document.getElementById('gift');
 const msg=document.getElementById('giftMsg');
