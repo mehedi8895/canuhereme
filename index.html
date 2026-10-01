@@ -25,24 +25,25 @@ button{font:inherit}
 body:before{
   content:"";position:fixed;inset:0;z-index:-5;
   background:
-    radial-gradient(circle at 50% 12%,rgba(255,214,126,.20),transparent 23%),
-    radial-gradient(circle at 8% 30%,rgba(218,156,58,.12),transparent 20%),
-    radial-gradient(circle at 92% 38%,rgba(239,190,83,.10),transparent 21%),
-    radial-gradient(circle at 50% 78%,rgba(164,101,24,.10),transparent 28%),
-    linear-gradient(180deg,#0a0908 0%,#0d0b09 48%,#080706 100%);
+    radial-gradient(ellipse at 50% 8%,rgba(255,218,135,.34) 0%,rgba(226,174,72,.14) 18%,transparent 42%),
+    radial-gradient(circle at 0% 24%,rgba(255,193,68,.22),transparent 28%),
+    radial-gradient(circle at 100% 27%,rgba(255,214,120,.20),transparent 29%),
+    radial-gradient(circle at 18% 78%,rgba(188,119,24,.16),transparent 25%),
+    radial-gradient(circle at 82% 72%,rgba(255,190,62,.13),transparent 28%),
+    linear-gradient(180deg,#120f0a 0%,#0d0b08 45%,#070605 100%);
 }
 body:after{
-  content:"";position:fixed;inset:-10%;z-index:-4;pointer-events:none;
-  opacity:.48;
+  content:"";position:fixed;inset:0;z-index:-4;pointer-events:none;
   background:
-    radial-gradient(circle at 12% 16%,rgba(255,225,157,.55) 0 1px,transparent 2px),
-    radial-gradient(circle at 82% 12%,rgba(255,225,157,.42) 0 1.5px,transparent 2.5px),
-    radial-gradient(circle at 25% 58%,rgba(243,205,119,.30) 0 1px,transparent 2px),
-    radial-gradient(circle at 75% 68%,rgba(243,205,119,.35) 0 1px,transparent 2px),
-    radial-gradient(circle at 52% 38%,rgba(255,246,218,.25) 0 1px,transparent 2px);
-  background-size:180px 210px,230px 250px,200px 230px,260px 270px,170px 190px;
-  animation:bgSparkle 8s linear infinite;
+    radial-gradient(circle at 50% 0%,rgba(255,235,180,.20) 0 2px,transparent 3px),
+    radial-gradient(circle at 15% 14%,rgba(255,211,116,.45) 0 2px,transparent 4px),
+    radial-gradient(circle at 85% 18%,rgba(255,226,156,.38) 0 2px,transparent 4px),
+    radial-gradient(circle at 8% 55%,rgba(255,195,72,.30) 0 2px,transparent 5px),
+    radial-gradient(circle at 92% 58%,rgba(255,220,139,.30) 0 2px,transparent 5px);
+  background-size:100% 100%;
+  filter:blur(.2px);
 }
+
 @keyframes bgSparkle{
   0%{transform:translate3d(0,0,0) scale(1)}
   50%{transform:translate3d(0,-8px,0) scale(1.015)}
@@ -296,6 +297,33 @@ h1{
 .c1{left:17%;top:18%;background:#d8b56a}.c2{right:18%;top:61%;background:#f0d99e;animation-delay:1.2s}.c3{left:9%;top:74%;background:#b98939;animation-delay:2.2s}.c4{right:10%;top:36%;background:#e5c47d;animation-delay:3s}
 @keyframes confettiDrift{50%{transform:translateY(15px) rotate(70deg)}}
 
+
+.birthday-lights{
+  position:fixed;top:0;left:0;right:0;height:90px;z-index:-2;
+  pointer-events:none;
+  background:linear-gradient(180deg,rgba(255,213,125,.12),transparent);
+}
+.birthday-lights:before{
+  content:"";position:absolute;left:-5%;right:-5%;top:9px;height:1px;
+  background:rgba(239,201,124,.30);
+  box-shadow:0 0 18px rgba(239,201,124,.30);
+}
+.light{
+  position:absolute;top:5px;width:10px;height:16px;border-radius:50%;
+  background:#f6d98e;box-shadow:0 0 14px 5px rgba(246,217,142,.28);
+  animation:lightPulse 1.8s ease-in-out infinite alternate;
+}
+.l1{left:9%}.l2{left:25%;animation-delay:.4s}.l3{left:42%;animation-delay:.8s}
+.l4{left:59%;animation-delay:.2s}.l5{left:76%;animation-delay:.6s}.l6{left:91%;animation-delay:1s}
+@keyframes lightPulse{to{opacity:.38;transform:translateY(2px);box-shadow:0 0 8px 2px rgba(246,217,142,.14)}}
+.party-glow{
+  position:fixed;width:260px;height:260px;border-radius:50%;z-index:-3;
+  pointer-events:none;filter:blur(22px);
+  background:radial-gradient(circle,rgba(239,185,72,.13),transparent 68%);
+  animation:partyGlow 7s ease-in-out infinite;
+}
+.party-glow.one{left:-120px;top:18%}.party-glow.two{right:-130px;top:52%;animation-delay:2s}
+@keyframes partyGlow{50%{transform:translateY(-18px) scale(1.08);opacity:.8}}
 </style>
 </head>
 <body>
